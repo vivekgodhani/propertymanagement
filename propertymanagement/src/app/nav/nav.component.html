@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse" style="margin: 0;padding: 0;background-color: white; border-bottom: 1px black solid;">
+        
+    <div class="container-fluid">
+        <div class="navbar-header" style="margin: 0;padding: 0;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <label style="margin-left: 30px;;font-size: 20px; margin-top: 13px;" *ngIf="islogin()">Hi,{{Name}}</label>
+        </div>
+        <div *ngIf="!islogin()"  class="collapse navbar-collapse" style="padding: 0;margin: 0;" id="myNavbar">
+            <a   href='signup'  style="background-color: lightgray;" > Sign Up</a>
+            <a   href='login' id="log"  style="cursor: pointer;" > Login</a>
+        </div>
+        <div *ngIf="islogin()"  class="collapse navbar-collapse" style="padding: 0;margin: 0;" id="myNavbar">
+                <a    style="cursor: pointer; background-color: lightgray;" (click)="logout()" >Logout</a>
+                <a   href="property" style="cursor: pointer;" >Add Property</a>
+                <a  href="listprop" style="cursor: pointer;" >List Property</a>
+                <a   href=""id="log"  style="cursor: pointer;" > Home</a>
+        </div>
+    </div>
+</nav>
+<br>

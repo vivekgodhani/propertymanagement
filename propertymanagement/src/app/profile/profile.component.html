@@ -1,0 +1,71 @@
+
+<app-nav></app-nav>
+<div class="takecenter"  *ngIf="!isupdate">
+
+    <div class="takecenter2">
+        
+<h2 style="border-bottom:1px black solid ;padding: 10px;">My Profile</h2>
+    <div class="row"  >
+    <label class="col-md-2">Name </label><label class="col-md-1" >:</label>  <label class="col-md-7">{{user.name}}</label>
+    </div>
+    <div class="row">
+        <label class="col-md-2" >Email </label> <label class="col-md-1" >:</label> <label class="col-md-7">{{user.email}}</label>
+    </div>
+    <div class="row">
+        <label class="col-md-2" >DOB</label> <label class="col-md-1" >:</label> <label class="col-md-7">{{user.dbo}}</label>
+    </div>
+    
+    <div class="row">
+        <label class="col-md-2" >City</label> <label class="col-md-1" >:</label> <label class="col-md-7">{{user.city}}</label>
+    </div>
+    
+    <div class="row">
+        <label class="col-md-2" >State</label> <label class="col-md-1" >:</label> <label class="col-md-7">{{user.state}}</label>
+    </div>
+    <div class="row">
+        <label class="col-md-2" >Country</label> <label class="col-md-1" >:</label> <label class="col-md-7">{{user.country}}</label>
+    </div>
+    <br>
+    <button (click)="doupdate()" class="takebutton">Update</button>
+    </div>
+</div>
+<div class="takecenter" *ngIf="isupdate">
+
+    <div class="takecenter2">
+    <h2 style="border-bottom:1px black solid ;padding: 10px;">Update</h2>
+    <form #userform="ngForm" (ngSubmit)="onSubmit(userform)" style="padding: 10px;">
+        
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="service.se._id">
+        <input [(ngModel)]="service.se.email" class="takeinput" type="email" name="email" #name="ngModel" required   placeholder="email*" >
+        <br><br>
+        <input [(ngModel)]="service.se.name" class="takeinput" name="name" #name="ngModel" required   placeholder="name*" >
+        <br><br>
+        <select [(ngModel)]="service.se.country" class="takeinput"  name="country" #name="ngModel" required  >
+             <option value="" disabled selected>Select your Country</option>
+            
+            <option *ngFor="let d of country" value="{{d.name}}">{{d.name}}</option>
+        </select>
+        <br><br>
+        <select [(ngModel)]="service.se.state" class="takeinput" name="state" #name="ngModel" required  >
+             <option value="" disabled selected>Select your State</option>
+            
+            <option *ngFor="let d of state" value="{{d.name}}">{{d.name}}</option>
+        </select>    
+        <br><br>
+        <select [(ngModel)]="service.se.city" class="takeinput" name="city" #name="ngModel" required   placeholder="city*">
+             <option value="" disabled selected>Select your City</option>
+            
+            <option *ngFor="let d of citys" value="{{d.name}}">{{d.name}}</option>
+        </select>      
+        <br><br>
+        <input [(ngModel)]="service.se.dbo"  class="takeinput" type="date" name="dbo" #name="ngModel" required   placeholder="date of  *" >
+        <br><br>
+        <input [(ngModel)]="service.se.password" class="takeinput" type="password" name="password" #name="ngModel" required   placeholder="password*" >
+        <br><br>
+        <button  style="margin-right: 10px;" type="submit" class="takebutton" [disabled]="userform.invalid" >Submit</button>
+                
+        <button (click)="doupdate()" class="takebutton">Close</button>
+
+    </form>
+    </div>
+</div>

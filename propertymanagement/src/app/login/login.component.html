@@ -1,0 +1,17 @@
+
+<app-nav></app-nav>
+<div class="center-block" class="ltakecenter"> 
+<div class="takecenter2">
+<h2 style="border-bottom:1px black solid ;padding: 10px;">Login</h2>
+<form #userform="ngForm" (ngSubmit)="onSubmit(userform)" style="padding: 10px;">
+
+        <input [(ngModel)]="service.se.email" class="takeinput" type="email" name="email" #name="ngModel" required   placeholder="email*" >
+        <br><br>
+        <input [(ngModel)]="service.se.password" type="password" class="takeinput" name="password" #name="ngModel" required   placeholder="Password*" >
+        <br><br>
+        <button  type="submit" class="takebutton" [disabled]="userform.invalid" >Submit</button>
+    </form>
+</div>
+</div>
+<br>
+<br>

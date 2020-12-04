@@ -1,0 +1,42 @@
+
+<app-nav></app-nav>
+<div class="takecenter" >
+
+    <div class="takecenter2">
+    <h2 style="border-bottom:1px black solid ;padding: 10px;">Add Property</h2>
+    <form #userform="ngForm" (ngSubmit)="onSubmit(userform)" style="padding: 10px;">
+        
+        <img *ngIf="isu" [src]="url" style="height: 80px;width: 80px;">
+        <br>
+        <input type="hidden" name="path" #name="ngModel" [(ngModel)]="service.se.path" > 
+        <input type="file" name="image" (change)="selectImage($event)" required />
+        <br>
+        <input [(ngModel)]="service.se.title" class="takeinput" name="title" #name="ngModel" required   placeholder="Title*" >
+        <br><br>
+        <input [(ngModel)]="service.se.description" class="takeinput" name="description" #name="ngModel" required   placeholder="Description*" >
+        <br><br>
+        <select [(ngModel)]="service.se.country" class="takeinput"  name="country" #name="ngModel" required  >
+            <option value="" disabled selected>Select your Country</option>
+            
+            <option *ngFor="let d of country" value="{{d.name}}">{{d.name}}</option>
+        </select>
+        <br><br>
+        <select [(ngModel)]="service.se.state" class="takeinput" name="state" #name="ngModel" required  >
+            <option value="" disabled selected>Select your State</option>
+            
+            <option *ngFor="let d of state" value="{{d.name}}">{{d.name}}</option>
+        </select>    
+        <br><br>
+        <select [(ngModel)]="service.se.city" class="takeinput" name="city" #name="ngModel" required   placeholder="city*">
+            <option value="" disabled selected>Select your City</option>
+            
+            <option *ngFor="let d of citys" value="{{d.name}}">{{d.name}}</option>
+        </select>      
+        <br><br>
+        <input [(ngModel)]="service.se.add" class="takeinput" name="add" #name="ngModel" required   placeholder="Address*" >
+        <br><br>
+        <button  style="margin-right: 10px;" type="submit" class="takebutton" [disabled]="userform.invalid" >Submit</button>
+             
+    </form>
+    </div>
+</div>
